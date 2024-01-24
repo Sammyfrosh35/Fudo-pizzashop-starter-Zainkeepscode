@@ -13,7 +13,7 @@ const Hero = () => {
       <div className={css.lefside}>
         <div className={css.cherrydiv}>
           <span>More than Faster</span>
-          <Image src={Cherry} alt="" width={40} height={25} />
+          <Image src={Cherry} alt="" width={40} height={25} priority=""/>
         </div>
 
         <div className={css.herotext}>
@@ -37,7 +37,7 @@ const Hero = () => {
       {/* right side */}
       <div className={css.right}>
         <div className={css.Imagecontainer}>
-            <Image src={HeroImage} alt="" layout="intrinsic"/>
+            <Image src={HeroImage} alt="" />
         </div>
         <div className={css.contactus}>
             <span>Contact us</span>
