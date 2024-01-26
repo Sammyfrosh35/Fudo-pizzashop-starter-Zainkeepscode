@@ -13,7 +13,7 @@ const Hero = () => {
       <div className={css.lefside}>
         <div className={css.cherrydiv}>
           <span>More than Faster</span>
-          <Image src={Cherry} alt="" width={40} height={25} priority=""/>
+          <Image src={Cherry} alt="" width={40} height={20} priority=""/>
         </div>
 
         <div className={css.herotext}>
@@ -25,8 +25,7 @@ const Hero = () => {
         </div>
 
         <span className={css.smallText}>
-        <span>Our Mission is to Quench your hunger with delicious food and with fast</span> 
-       <span>and free delivery</span>
+        <span>Our Mission is to Quench your hunger with delicious food and with fast</span>   <span>and free delivery</span>
         
         </span>
 <br />

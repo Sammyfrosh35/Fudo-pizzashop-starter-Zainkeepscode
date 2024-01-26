@@ -16,7 +16,7 @@
     justify-content: center;
     width: fit-content;
     background-color: var(--pink);
-    margin-top: 3rem;
+    margin-top: 2rem;
     padding: 1rem;
     border-radius: 2rem;
     font-weight: bold;
@@ -33,30 +33,34 @@
     display: flex;
     font-size: 4rem;
     font-weight: bold;
+    margin-left: 1rem;
 }
 
 .smallText{
     width: 70%;
     color: var(--gray);
     font-weight: 600;
+    margin-left: 1rem;
     
 }
 
 .btn{
     padding: 1rem 2.5rem;
-    margin: 1rem;
+    margin-left: 1rem;
 
 }
 
 .right{
     position:relative;
+   
 }
 
 .Imagecontainer{
     width: 38rem;
     position: absolute;
-    top: -5rem;
+    top: -7rem;
     left: -5rem;
+   
 
 }
 

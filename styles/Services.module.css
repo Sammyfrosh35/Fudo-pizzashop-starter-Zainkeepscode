@@ -4,6 +4,7 @@
     font-weight: bold;
     justify-content: center;
     align-items: center;
+    margin-left: 10rem;
 }
 
 .heading>:nth-child(1){
@@ -32,6 +33,7 @@ font-size:2rem ;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    margin-left: 3rem;
 }
 
 .imagewrapper{
