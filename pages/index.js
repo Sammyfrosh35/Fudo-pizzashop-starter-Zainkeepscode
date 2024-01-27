@@ -6,9 +6,7 @@ import Services from "./components/Services";
 import Menu from "./components/Menu"
 import { client } from "../lib/client";
 
-export default function Home(pizzas) {
-
-
+export default function Home({pizzas}) {
   return (
     <Layout>
       <div className={css.container}>
@@ -24,22 +22,46 @@ export default function Home(pizzas) {
           <br />
           <br />
           <Services/>  
-          <Menu pizzas={pizzas}  />
+          <Menu pizzas={pizzas} />
         </main>
       </div>
       </Layout>
   );
 }
 
-
-export const getServerSideProps = async()=>{
-  const query = '*[_type == "pizza"]';
+export const getServerSideProps = async ()=> {
+  const query = '*[_type == "pizza"]'
   const pizzas = await client.fetch(query);
-  return{
+  return {
     props: {
       pizzas
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const getServerSideProps = async()=>{
+//   const query = '*[_ type == "pizza"]';
+//   const pizzas = await client.fetch(query);
+//   return{
+//     props: {
+//       pizzas,  pizzas
+//     }
+//   }
+// }
+
 
 
