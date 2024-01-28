@@ -1,4 +1,4 @@
 
-import pizza from './Pizza'
+import pizza from '../../sanity/schemas/pizza'
 export const schemaTypes = [pizza]
 
