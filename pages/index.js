@@ -53,15 +53,7 @@ export const getServerSideProps = async ()=> {
 
 
 
-// export const getServerSideProps = async()=>{
-//   const query = '*[_ type == "pizza"]';
-//   const pizzas = await client.fetch(query);
-//   return{
-//     props: {
-//       pizzas,  pizzas
-//     }
-//   }
-// }
+
 
 
 

@@ -1,9 +1,11 @@
-import { urlFor, client } from "../../lib/client";
+import { urlFor } from "../../lib/client";
 import css from "../../styles/Menu.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function Menu({ pizzas }) {
+
   return (
     <div className={css.container}>
       <div className={css.heading}>
@@ -15,10 +17,13 @@ export default function Menu({ pizzas }) {
       <div className={css.menu}>
         {/* pizzas */}
         {pizzas.map((pizza, id) => {
-          const src = urlFor(pizza.image).width(200).url();
+          const src = urlFor(pizza.image).url();
           return (
             <div className={css.pizza} key={id}>
+
+
               <Link href={`./pizza/${pizza.slug.current}`}>
+
                 <div className={css.imagewrapper}>
                   <Image
                     loader={() => src}
@@ -26,11 +31,13 @@ export default function Menu({ pizzas }) {
                     alt=""
                     objectFit="cover"
                     layout="fill"
+                    unoptimized
+                    priority
                   />
                 </div>
               </Link>
-              <span>{pizza.name}</span>
 
+              <span>{pizza.name}</span>
               <span>
                 <span style={{ color: "var(--themeRed)" }}>$</span>{" "}
                 {pizza.price[1]}
