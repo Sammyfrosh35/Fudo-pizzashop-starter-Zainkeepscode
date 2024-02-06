@@ -3,9 +3,7 @@ import css from "../../styles/Menu.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-
 export default function Menu({ pizzas }) {
-
   return (
     <div className={css.container}>
       <div className={css.heading}>
@@ -20,10 +18,7 @@ export default function Menu({ pizzas }) {
           const src = urlFor(pizza.image).url();
           return (
             <div className={css.pizza} key={id}>
-
-
               <Link href={`./pizza/${pizza.slug.current}`}>
-
                 <div className={css.imagewrapper}>
                   <Image
                     loader={() => src}

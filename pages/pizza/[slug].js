@@ -5,12 +5,38 @@ import css from "../../styles/Pizza.module.css";
 import LeftArrow from "../../assets/arrowLeft.png";
 import RightArrow from "../../assets/arrowRight.png";
 import { useState } from "react";
+import { useStore } from "../../store/store";
+import toast, {Toaster} from 'react-hot-toast'
 
 const Pizza = ({ pizza }) => {
   const src = urlFor(pizza.image).url();
 
- const [size, SetSize] = useState(1)
- 
+  const [size, SetSize] = useState(1);
+  const [Quantity, setQuantity] = useState(1);
+
+  // handle quantity
+  const handleQuantity = (type) => {
+    type === "add"
+      ? setQuantity((prev) => prev + 1)
+      : Quantity === 1
+      ? null
+      : setQuantity((prev) => prev - 1);
+  };
+    // add to cart function
+const addPizza = useStore((state)=>state.addPizza)
+    const addtocart = () =>{
+      addPizza({...pizza, price: pizza.price[size], quantity: Quantity, size: size})
+      toast.success("Added to Cart")
+    }
+
+
+
+
+
+
+
+
+
   return (
     <Layout>
       <div className={css.container}>
@@ -33,13 +59,31 @@ const Pizza = ({ pizza }) => {
           <div className={css.size}>
             <span>Size</span>
             <div className={css.sizevariants}>
-              <div onClick={()=> SetSize(0)} className={size===0? css.selected : ""}>Small</div>
-              <div onClick={()=> SetSize(1)} className={size===1? css.selected : ""}>Medium</div>
-              <div onClick={()=> SetSize(2)} className={size===2? css.selected : ""}>Large</div>
+              <div
+                onClick={() => SetSize(0)}
+                className={size === 0 ? css.selected : ""}
+              >
+                Small
+              </div>
+              <div
+                onClick={() => SetSize(1)}
+                className={size === 1 ? css.selected : ""}
+              >
+                Medium
+              </div>
+              <div
+                onClick={() => SetSize(2)}
+                className={size === 2 ? css.selected : ""}
+              >
+                Large
+              </div>
             </div>
           </div>
 
-          <span><span style={{color:"var(--themeRed)"}}>$</span> {pizza.price[size]}</span>
+          <span>
+            <span style={{ color: "var(--themeRed)" }}>$</span>{" "}
+            {pizza.price[size]}
+          </span>
           {/* Quantity tab */}
           <div className={css.quantity}>
             <span>Quantity</span>
@@ -50,9 +94,10 @@ const Pizza = ({ pizza }) => {
                 width={20}
                 alt=""
                 objectFit="contain"
+                onClick={() => handleQuantity("minus")}
               />
 
-              <span>1</span>
+              <span>{Quantity}</span>
 
               <Image
                 src={RightArrow}
@@ -60,17 +105,16 @@ const Pizza = ({ pizza }) => {
                 width={20}
                 alt=""
                 objectFit="contain"
+                onClick={() => handleQuantity("add")}
               />
             </div>
           </div>
 
-        {/* button */}
+          {/* button */}
 
-        <div className={ `btn ${css.btn}`}>
-          Add to cart
+          <div className={`btn ${css.btn}`} onClick={addtocart}>Add to cart</div>
         </div>
-
-        </div>
+        <Toaster/>
       </div>
     </Layout>
   );
